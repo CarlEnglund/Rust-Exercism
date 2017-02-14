@@ -44,4 +44,3 @@ fn test_non_question_with_question_mark() {
 fn test_silent_treatment() {
     assert_eq!("Fine. Be that way!", bob::reply(""));
 }
-

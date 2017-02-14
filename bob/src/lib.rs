@@ -3,21 +3,16 @@ pub fn reply(message: &str) -> String {
     let question_mark = |input: &str| input.find('?') == Some(input.len()-1);
 
     if message.len() == 0 {
-        let s = "Fine. Be that way!".to_string();
-        return s;
+        return "Fine. Be that way!".to_string();
     }
-
+    
     if all_caps(message) {
-       let s = "Whoa, chill out!".to_string();
-       return s;
+       return "Whoa, chill out!".to_string();
     }
 
     if question_mark(message) {
-       let s = "Sure.".to_string();
-       return s;
+       return "Sure.".to_string();
     }
 
-    let s = "Whatever.".to_string();
-    s
-        
+    "Whatever.".to_string()
 }
