@@ -5,14 +5,11 @@ pub fn reply(message: &str) -> String {
     if message.len() == 0 {
         return "Fine. Be that way!".to_string();
     }
-    
     if all_caps(message) {
        return "Whoa, chill out!".to_string();
     }
-
     if question_mark(message) {
        return "Sure.".to_string();
     }
-
     "Whatever.".to_string()
 }
