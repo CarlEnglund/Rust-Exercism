@@ -1,9 +1,10 @@
 use std::collections::HashMap;
 
-    pub fn score(letter: &str) -> u32 {
-        let chars_vector = letter.to_lowercase().chars().collect(); 
-    
-    1    
+pub fn score(letter: &str) -> u32 {
+    let scoring = scoring_rules();
+    letter.to_lowercase().chars().map(|char| scoring.get(&char).clone())
+    .fold(0, |accumulator, value| accumulator + value.unwrap_or(&0)) 
+        
 }
 
 fn scoring_rules() -> HashMap<char, u32> {
