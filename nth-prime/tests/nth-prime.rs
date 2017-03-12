@@ -10,12 +10,10 @@ fn second_prime() {
     assert_eq!(nprime(2), 3)
 }
 #[test]
-#[ignore]
 fn sixth_prime() {
     assert_eq!(nprime(6), 13)
 }
 #[test]
-#[ignore]
 fn big_prime() {
     assert_eq!(nprime(10001), 104743)
 }
