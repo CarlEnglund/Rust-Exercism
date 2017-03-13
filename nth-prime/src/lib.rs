@@ -1,18 +1,26 @@
-pub fn nprime(n: usize) -> usize {
-    let store: Vec<usize> = primes_lt(1000000); 
-    store[n-1]
+use std::num;
+
+pub fn nprime(n: usize) -> Result<i64, &'static str>{
+
+    if n < 1 {return Result::Err("Value must be larger than 2")}
+    let mut primes = 0;
+    let mut i = 1;
+
+    while primes < n {
+        i+= 1;
+        if is_prime(i) {primes += 1};
+    }
+    Result::Ok(i)
 }
 
-fn primes_lt(bound: usize) -> Vec<usize> {
-    let mut primes: Vec<bool> = (0..bound + 1).map(|num| num == 2 || num & 1 != 0).collect();
-    let mut num = 3usize;
-    while num * num <= bound {        
-        let mut j = num * num;
-        while j <= bound {
-            primes[j] = false;
-            j += num;
-        }
-        num += 2;
-    }
-    primes.into_iter().enumerate().skip(2).filter_map(|(i, p)| if p {Some(i)} else {None}).collect::<Vec<usize>>()
+pub fn is_prime(n: i64) -> bool {
+
+    if n == 1 {return false};
+    if n == 2 {return true};
+
+    for i in 2..(n as f64).sqrt() as i64+1 {
+        if n % i == 0 {return false}; 
+    } 
+
+    true
 }

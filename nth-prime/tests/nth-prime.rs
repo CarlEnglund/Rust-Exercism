@@ -3,22 +3,21 @@ use nth_prime::*;
 
 #[test]
 fn first_prime() {
-    assert_eq!(nprime(1), 2)
+    assert_eq!(nprime(1).unwrap(), 2);
 }
 #[test]
 fn second_prime() {
-    assert_eq!(nprime(2), 3)
+    assert_eq!(nprime(2).unwrap(), 3);
 }
 #[test]
 fn sixth_prime() {
-    assert_eq!(nprime(6), 13)
+    assert_eq!(nprime(6).unwrap(), 13);
 }
 #[test]
 fn big_prime() {
-    assert_eq!(nprime(10001), 104743)
+    assert_eq!(nprime(10001).unwrap(), 104743);
 }
 #[test]
-#[ignore]
 fn no_zeroth_prime() {
-//    assert_eq!(nprime(0), false)
+    assert!(nprime(0).is_err());
 }
